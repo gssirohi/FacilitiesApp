@@ -5,7 +5,9 @@ import com.gojek.mygojekapp.WeatherApplication
 import com.gojek.mygojekapp.injection.module.*
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Singleton
 
+@Singleton
 @Component(modules = arrayOf(
     ApplicationModule::class,
     UiModule::class,

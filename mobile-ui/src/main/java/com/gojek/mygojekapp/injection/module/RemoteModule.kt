@@ -5,6 +5,7 @@ import com.gojek.mygojekapp.BuildConfig
 import com.gojek.remote.RemoteRepositoryImpl
 import com.gojek.remote.WeatherService
 import com.gojek.remote.WeatherServiceFactory
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 
@@ -20,5 +21,6 @@ abstract class RemoteModule {
         }
     }
 
+    @Binds
     abstract fun bindRemoteRepositoryImpl(remoteRepositoryImpl:RemoteRepositoryImpl):RemoteRepository
 }

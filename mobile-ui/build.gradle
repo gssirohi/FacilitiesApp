@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'jacoco-android'
 
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
@@ -12,7 +13,7 @@ android {
         minSdkVersion globalConfiguration["androidMinSdkVersion"]
         targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
         multiDexEnabled = true
-        testInstrumentationRunner "org.buffer.android.boilerplate.ui.test.TestRunner"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -87,6 +88,7 @@ dependencies {
 
     compile presentationDependencies.archRuntime
     compile presentationDependencies.archExtensions
+    compile "android.arch.persistence.room:rxjava2:1.0.0-alpha9-1"
     kapt presentationDependencies.archCompiler
 
     // Instrumentation test dependencies
