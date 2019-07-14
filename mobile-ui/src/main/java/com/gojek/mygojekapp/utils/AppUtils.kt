@@ -26,9 +26,19 @@ class AppUtils{
             }
         }
 
+        fun getDayNameForPosition(position: Int): String? {
+            var cal = Calendar.getInstance()
+            cal.add(Calendar.DAY_OF_YEAR,position)
+            return cal.getDisplayName(Calendar.DAY_OF_WEEK,Calendar.LONG,Locale.getDefault())
+        }
+
         fun formateInDegreeCelcius(temp_c: Float?): CharSequence? {
             if(temp_c == null) return ""
             return ""+temp_c?.roundToInt()+"\u00B0"
+        }
+
+        fun getFormattedForcastTemp(item: Float): String? {
+            return ""+item?.roundToInt()+" C"
         }
 
         fun readJsonFromFile(context: Context, fileName:String):String{
@@ -45,6 +55,10 @@ class AppUtils{
             var text = textBuilder.toString().replace("\uFFFF","")
             return text
         }
+
+
+
+
     }
 
 

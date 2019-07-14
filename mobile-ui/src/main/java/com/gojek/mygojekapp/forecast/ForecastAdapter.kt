@@ -4,10 +4,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import com.gojek.mygojekapp.R
+import com.gojek.mygojekapp.utils.AppUtils
 import kotlinx.android.synthetic.main.forecast_item_layout.view.*
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import java.util.*
 import javax.inject.Inject
 import kotlin.math.roundToInt
 
@@ -29,10 +27,8 @@ class ForecastAdapter @Inject constructor(): RecyclerView.Adapter<RecyclerView.V
         var item = forecastItems.get(position)
         //var date = AppUtils.convertFromYYYYMMDDToDate(item.date)
 
-        var cal = Calendar.getInstance()
-        cal.add(Calendar.DAY_OF_YEAR,position)
-        (holder as ForecastViewHolder).forecastView.tv_day.text = ""+cal.getDisplayName(Calendar.DAY_OF_WEEK,Calendar.LONG,Locale.getDefault())
-        (holder as ForecastViewHolder).forecastView.tv_day_temp.text = ""+item?.roundToInt()+" C"
+        (holder as ForecastViewHolder).forecastView.tv_day.text = AppUtils.getDayNameForPosition(position)
+        (holder as ForecastViewHolder).forecastView.tv_day_temp.text = AppUtils.getFormattedForcastTemp(item)
     }
 
     class ForecastViewHolder(val forecastView: View) : RecyclerView.ViewHolder(forecastView) {}

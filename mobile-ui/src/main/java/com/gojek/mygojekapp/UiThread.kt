@@ -1,8 +1,8 @@
 package com.gojek.mygojekapp
 
+import com.gojek.domain.executor.PostExecutionThread
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
-import org.buffer.android.boilerplate.domain.executor.PostExecutionThread
 import javax.inject.Inject
 
 /**
