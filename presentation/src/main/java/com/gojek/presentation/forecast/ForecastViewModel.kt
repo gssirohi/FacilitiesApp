@@ -4,6 +4,7 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import com.gojek.domain.interactor.forecast.GetForecast
 import com.gojek.domain.model.ForecastData
+import com.gojek.domain.model.ForecastRequest
 import com.gojek.presentation.mapper.ForecastModelMapper
 import com.gojek.presentation.model.ForecastModel
 import io.reactivex.subscribers.DisposableSubscriber
@@ -19,7 +20,7 @@ class ForecastViewModel @Inject internal constructor(
     private val forecastLiveData:MutableLiveData<Resource<ForecastModel>> = MutableLiveData()
 
     init {
-        fetchForecast()
+
     }
 
     override fun onCleared() {
@@ -30,12 +31,13 @@ class ForecastViewModel @Inject internal constructor(
         return forecastLiveData
     }
 
-    private fun fetchForecast() {
+    fun fetchForecast(req:ForecastRequest) {
         forecastLiveData.postValue(Resource(ResourceState.LOADING,null,null))
-        return Forecast.execute(ForecastSubscriber())
+
+        return Forecast.execute(ForecastSubscriber(), req)
     }
 
-    inner class ForecastSubscriber:DisposableSubscriber<ForecastData>() {
+    private inner class ForecastSubscriber:DisposableSubscriber<ForecastData>() {
         override fun onComplete() {}
 
         override fun onNext(t: ForecastData?) {

@@ -3,11 +3,13 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent">
     <include
+            android:id="@+id/main_content"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             layout="@layout/content_main"></include>
 
     <com.gojek.mygojekapp.widget.error.ErrorView
+            android:id="@+id/error_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
     android:visibility="gone">
@@ -15,6 +17,7 @@
     </com.gojek.mygojekapp.widget.error.ErrorView>
 
     <com.gojek.mygojekapp.widget.loading.LoadingView
+            android:id="@+id/loading_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
     android:visibility="gone">
