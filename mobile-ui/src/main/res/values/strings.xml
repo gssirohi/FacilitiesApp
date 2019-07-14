@@ -6,4 +6,5 @@
     <string name="alert_gps_disabled">App requires Location Service which is currently disabled. Do you want to enable
         it?
     </string>
+    <string name="error_msg_default">Something went wrong at our end!</string>
 </resources>

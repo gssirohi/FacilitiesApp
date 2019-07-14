@@ -4,26 +4,22 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E85959"
+        android:background="@color/error_bg"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".forecast.ForecastActivity">
     <TextView
             android:id="@+id/tv_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:text = "Something went wrong at our end!"
-
+            android:text = "@string/error_msg_default"
             app:layout_constraintTop_toBottomOf="parent"
             app:layout_constraintBottom_toTopOf="parent"
             app:layout_constraintLeft_toRightOf="parent"
             app:layout_constraintRight_toLeftOf="parent"
 
-            android:paddingLeft="42dp"
-            android:paddingRight="42dp"
-            android:textSize="54sp"
-            android:fontFamily="sans-serif-thin"
-            android:textColor="#FFFFFF"
+            android:paddingLeft="@dimen/padding_large"
+            android:paddingRight="@dimen/padding_large"
+            android:textAppearance="@style/Text.Error"
     />
 
     <Button
@@ -35,9 +31,8 @@
             app:layout_constraintLeft_toRightOf="parent"
             app:layout_constraintRight_toLeftOf="parent"
 
-
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="@dimen/retry_button_top_margin"
+            style="@style/Button.Retry"
             android:text="RETRY"
     />
 </android.support.constraint.ConstraintLayout>

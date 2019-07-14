@@ -5,4 +5,35 @@
         <item name="android:windowNoTitle">true</item>
     </style>
 
+
+    <style name="Text.CurrTemp" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_current_temp</item>
+        <item name = "android:textColor">@color/text_color_dark</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+    </style>
+
+    <style name="Text.Location" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_location</item>
+        <item name = "android:textColor">@color/text_color_light</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
+    </style>
+
+    <style name="Text.Day" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_day_name</item>
+        <item name = "android:textColor">@color/text_color_dark</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="Text.Error" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_error</item>
+        <item name = "android:textColor">@color/text_color_error</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
+    </style>
+
+    <style name="Button.Retry" parent="Widget.AppCompat.Button">
+        <item name = "android:textColor">@color/text_color_button</item>
+    </style>
+
+
+
 </resources>

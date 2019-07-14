@@ -4,7 +4,7 @@
 
 <item
 
-android:width="96dp" android:height="96dp" android:gravity="center">
+android:width="@dimen/loader_size" android:height="@dimen/loader_size" android:gravity="center">
     <rotate
             android:drawable="@drawable/ic_loading"
             android:fromDegrees="0"

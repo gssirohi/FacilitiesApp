@@ -37,6 +37,7 @@ import kotlinx.android.synthetic.main.activity_forecast.*
 import kotlinx.android.synthetic.main.bottom_sheet_forecast_weather.*
 import kotlinx.android.synthetic.main.content_curr_weather.*
 import org.buffer.android.boilerplate.presentation.data.ResourceState
+import java.util.*
 import javax.inject.Inject
 import kotlin.math.roundToInt
 
@@ -47,6 +48,7 @@ class ForecastActivity : AppCompatActivity(),LocationListener {
     @Inject lateinit var adapter: ForecastAdapter
 
     private lateinit var forecastViewModel: ForecastViewModel
+    private var behavior: BottomSheetBehavior<ConstraintLayout>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,9 +67,6 @@ class ForecastActivity : AppCompatActivity(),LocationListener {
             }
         }
     }
-
-
-    private var behavior: BottomSheetBehavior<ConstraintLayout>? = null
 
     private fun setUpMainContent() {
         recycler_forecast.layoutManager = LinearLayoutManager(this)
@@ -142,10 +141,12 @@ class ForecastActivity : AppCompatActivity(),LocationListener {
     private fun checkGPSAndFetchLocation() {
         var locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,10000,0f,this)
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,10000,0f,this)
-
             var lastLoc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+            if(lastLoc != null && lastLoc.getTime() > Calendar.getInstance().getTimeInMillis() - 2 * 60 * 1000) {
+                //Recent location
+            } else {
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0f,this)
+            }
             fetchWeatherForecast(lastLoc)
         } else {
             showAlertNoGPS()
@@ -161,8 +162,8 @@ class ForecastActivity : AppCompatActivity(),LocationListener {
     private fun showAlertNoGPS() {
         var dialog = AlertDialog.Builder(this)
             .setMessage(getString(R.string.alert_gps_disabled))
-            .setPositiveButton("Yes",{ dialog: DialogInterface, i: Int ->
-                startActivityForResult(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS),REQUEST_CODE_ENABLE_GPS)})
+            .setPositiveButton("Yes") { dialog: DialogInterface, i: Int ->
+                startActivityForResult(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS),REQUEST_CODE_ENABLE_GPS)}
             .setNegativeButton("No") { dialog: DialogInterface, i: Int ->  setupScreenForError(getString(R.string.error_gps_disabled))}
             .create()
         dialog.show()
@@ -189,12 +190,12 @@ class ForecastActivity : AppCompatActivity(),LocationListener {
         }
     }
 
-    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
-        checkGPSAndFetchLocation()
-    }
+    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {}
     override fun onProviderEnabled(provider: String?) {}
     override fun onProviderDisabled(provider: String?) {}
     override fun onLocationChanged(location: Location?) {
+        var locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        location?.let { locationManager.removeUpdates(this) }
         fetchWeatherForecast(location)
     }
     companion object {

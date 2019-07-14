@@ -2,8 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             android:background="#F5F6F7"
->
+             android:background="@color/app_bg_color">
     <include
             android:id="@+id/main_content"
             android:layout_height="match_parent"
@@ -14,7 +13,7 @@
             android:id="@+id/error_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-    android:visibility="gone">
+            android:visibility="gone">
 
     </com.gojek.mygojekapp.widget.error.ErrorView>
 
@@ -22,7 +21,7 @@
             android:id="@+id/loading_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-    android:visibility="gone">
+            android:visibility="gone">
 
     </com.gojek.mygojekapp.widget.loading.LoadingView>
 </FrameLayout>

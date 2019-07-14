@@ -10,10 +10,10 @@
         app:behavior_peekHeight="0dp"
         app:layout_behavior="com.gojek.mygojekapp.widget.LockedBottomSheetBehavior"
 
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="16dp"
-        android:background="#FFFFFF"
+        android:paddingLeft="@dimen/padding_medium"
+        android:paddingRight="@dimen/padding_medium"
+        android:paddingTop="@dimen/padding_medium"
+        android:background="@color/bottom_sheet_bg"
         android:elevation="2dp"
 >
    <android.support.v7.widget.RecyclerView
