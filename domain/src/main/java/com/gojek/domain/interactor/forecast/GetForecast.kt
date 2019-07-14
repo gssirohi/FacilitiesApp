@@ -9,7 +9,7 @@ import org.buffer.android.boilerplate.domain.executor.PostExecutionThread
 import org.buffer.android.boilerplate.domain.executor.ThreadExecutor
 import javax.inject.Inject
 
-class GetForecast @Inject constructor(private val dataManager: WeatherDataManager,
+open class GetForecast @Inject constructor(private val dataManager: WeatherDataManager,
                                       threadExecutor: ThreadExecutor,
                                       postThreadExecutor: PostExecutionThread) :
 FlowableUseCase <ForecastData,ForecastRequest>(threadExecutor,postThreadExecutor){

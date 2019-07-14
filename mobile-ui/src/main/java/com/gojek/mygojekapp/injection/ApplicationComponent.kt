@@ -2,10 +2,7 @@ package com.gojek.mygojekapp.injection
 
 import android.app.Application
 import com.gojek.mygojekapp.WeatherApplication
-import com.gojek.mygojekapp.injection.module.ApplicationModule
-import com.gojek.mygojekapp.injection.module.DataModule
-import com.gojek.mygojekapp.injection.module.RemoteModule
-import com.gojek.mygojekapp.injection.module.UiModule
+import com.gojek.mygojekapp.injection.module.*
 import dagger.BindsInstance
 import dagger.Component
 
@@ -13,7 +10,8 @@ import dagger.Component
     ApplicationModule::class,
     UiModule::class,
     RemoteModule::class,
-    DataModule::class
+    DataModule::class,
+    DomainModule::class
 ))
 interface ApplicationComponent {
 
