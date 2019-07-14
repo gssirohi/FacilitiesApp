@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MyGojekApp</string>
+    <string name="degree">\\u00B0</string>
+    <string name="common_error_message">Something went wrong at our end!</string>
+    <string name="error_gps_disabled">Location service is disabled, App won\'t function!</string>
+    <string name="alert_gps_disabled">App requires Location Service which is currently disabled. Do you want to enable
+        it?
+    </string>
 </resources>
