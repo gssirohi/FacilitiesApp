@@ -11,7 +11,8 @@ import dagger.Component
     UiModule::class,
     RemoteModule::class,
     DataModule::class,
-    DomainModule::class
+    DomainModule::class,
+    PresentationModule::class
 ))
 interface ApplicationComponent {
 
