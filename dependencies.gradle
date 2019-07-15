@@ -28,6 +28,7 @@ ext{
     timberVersion = '4.5.1'
     daggerVersion = '2.11'
     roomVersion = '1.0.0-alpha9-1'
+    glassfishAnnotationVersion = '10.0-b28'
 
 
     //Testing
@@ -153,6 +154,7 @@ ext{
             timber:             "com.jakewharton.timber:timber:${timberVersion}",
             daggerSupport:      "com.google.dagger:dagger-android-support:${daggerVersion}",
             daggerProcessor:    "com.google.dagger:dagger-android-processor:${daggerVersion}",
+            glassfishAnnotation: "org.glassfish:javax.annotation:${glassfishAnnotationVersion}",
             roomRuntime:        "android.arch.persistence.room:runtime:${roomVersion}",
             roomCompiler:       "android.arch.persistence.room:compiler:${roomVersion}",
             roomRxJava:         "android.arch.persistence.room:rxjava2:${roomVersion}",

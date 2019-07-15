@@ -5,7 +5,7 @@ import com.gojek.remote.WeatherService
 import com.gojek.remote.model.ForecastResponse
 import javax.inject.Inject
 
-class ForecastDataEntityMapper @Inject constructor():EntityMapper<ForecastResponse,ForecastDataEntity> {
+open class ForecastDataEntityMapper @Inject constructor():EntityMapper<ForecastResponse,ForecastDataEntity> {
     override fun mapFromRemote(type: ForecastResponse): ForecastDataEntity {
         var mutableList = mutableListOf<Float>()
         type.forecast.forecastday.forEach{
