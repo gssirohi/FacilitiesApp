@@ -28,7 +28,7 @@ class AppUtils{
 
         fun getDayNameForPosition(position: Int): String? {
             var cal = Calendar.getInstance()
-            cal.add(Calendar.DAY_OF_YEAR,position)
+            cal.add(Calendar.DAY_OF_YEAR,position+1)
             return cal.getDisplayName(Calendar.DAY_OF_WEEK,Calendar.LONG,Locale.getDefault())
         }
 

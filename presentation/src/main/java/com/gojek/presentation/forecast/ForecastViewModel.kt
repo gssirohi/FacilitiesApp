@@ -41,7 +41,11 @@ class ForecastViewModel @Inject internal constructor(
         override fun onComplete() {}
 
         override fun onNext(t: ForecastData?) {
-            forecastLiveData.postValue(Resource(ResourceState.SUCCESS,modelMapper.mapFromData(t!!),null))
+            if(t != null) {
+                forecastLiveData.postValue(Resource(ResourceState.SUCCESS, modelMapper.mapFromData(t!!), null))
+            } else {
+                forecastLiveData.postValue(Resource(ResourceState.ERROR, null, "Empty Data"))
+            }
         }
 
         override fun onError(t: Throwable?) {

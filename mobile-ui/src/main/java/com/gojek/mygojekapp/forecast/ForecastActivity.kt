@@ -63,7 +63,7 @@ class ForecastActivity : AppCompatActivity(),LocationListener {
     private fun setUpListners() {
         error_view.errorListener = object:ErrorListener{
             override fun onTryAgainClicked() {
-                forecastViewModel.fetchForecast(ForecastRequest("Delhi",5))
+                checkGPSAndFetchLocation()
             }
         }
     }

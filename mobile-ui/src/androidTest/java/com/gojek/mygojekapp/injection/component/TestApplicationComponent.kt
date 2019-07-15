@@ -1,6 +1,7 @@
 package com.gojek.mygojekapp.injection.component
 
 import android.app.Application
+import com.gojek.data.repository.RemoteRepository
 import com.gojek.domain.datamanager.WeatherDataManager
 import com.gojek.domain.executor.PostExecutionThread
 import com.gojek.mygojekapp.injection.ApplicationComponent
@@ -22,6 +23,8 @@ import javax.inject.Singleton
 interface TestApplicationComponent : ApplicationComponent {
 
     fun weatherDataManager(): WeatherDataManager
+
+    fun remoreRepository():RemoteRepository
 
     fun postExecutionThread(): PostExecutionThread
 

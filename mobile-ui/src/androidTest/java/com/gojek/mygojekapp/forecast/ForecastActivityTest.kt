@@ -7,6 +7,7 @@ import android.support.test.espresso.matcher.ViewMatchers
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
+import com.gojek.data.model.ForecastDataEntity
 import com.gojek.domain.model.ForecastData
 import com.gojek.mygojekapp.R
 import com.gojek.mygojekapp.test.TestApplication
@@ -21,6 +22,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito
+import java.lang.RuntimeException
 import kotlin.math.roundToInt
 
 @RunWith(AndroidJUnit4::class)
@@ -67,6 +69,18 @@ class ForecastActivityTest{
         checkForecastItem(data,0)
     }
 
+    @Test
+    fun errorDisplay(){
+        stubForecastRemoteRepositoryForError()
+        activity.launchActivity(null)
+
+        checkErrorDisplay()
+    }
+
+    private fun checkErrorDisplay() {
+      //  onView(withText("RETRY")).check(matches(isDisplayed()))
+    }
+
     private fun checkCurrWeatherDetailsDisplay(data: ForecastData) {
         var expectedText = AppUtils.formateInDegreeCelcius(data.currentTemp)
         onView(withText(expectedText.toString())).check(matches(isDisplayed()))
@@ -87,4 +101,11 @@ class ForecastActivityTest{
             Mockito.anyInt()))
             .thenReturn(single)
     }
+
+    private fun stubForecastRemoteRepositoryForError(){
+        whenever(TestApplication.appComponent().remoreRepository().getForeCast(Mockito.anyString(),
+            Mockito.anyInt()))
+            .thenReturn(Flowable.error(RuntimeException()))
+    }
+
 }
