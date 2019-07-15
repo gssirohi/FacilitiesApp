@@ -7,7 +7,7 @@ import org.junit.runners.JUnit4
 import kotlin.test.assertEquals
 
 @RunWith(JUnit4::class)
-class DataFromEntityMapperTest {
+class DataFromDataMapperTest {
 
     private lateinit var mapper : ForeCastDataMapper
 

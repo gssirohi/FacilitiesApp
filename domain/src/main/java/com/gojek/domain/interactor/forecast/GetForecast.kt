@@ -16,7 +16,7 @@ open class GetForecast @Inject constructor(private val dataManager: WeatherDataM
 ) :
 FlowableUseCase <ForecastData,ForecastRequest>(threadExecutor,postThreadExecutor){
 
-    override fun buildUseCaseObservable(params: ForecastRequest?): Flowable<ForecastData> {
+    public override fun buildUseCaseObservable(params: ForecastRequest?): Flowable<ForecastData> {
         return dataManager.getForecast(params!!.location,params!!.days)
     }
 
