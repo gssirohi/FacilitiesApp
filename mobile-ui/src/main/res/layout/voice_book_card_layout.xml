@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<androidx.cardview.widget.CardView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toRightOf="parent"
+    app:cardCornerRadius="4dp"
+    android:id="@+id/card_book"
+    app:cardBackgroundColor="@color/colorAccent"
+    app:cardUseCompatPadding="true"
+    app:layout_constraintRight_toLeftOf="parent"
+    >
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="200dp">
+        <View
+            android:id="@+id/divider_book"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="6dp"
+            android:layout_alignParentLeft="true"
+            android:background="@android:color/white"></View>
+
+        <TextView
+            android:id="@+id/tv_default_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="Default"
+            android:textAllCaps="true"
+            android:background="@drawable/stroke_white"
+            android:textSize="8sp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:padding="4dp"
+            android:textColor="@android:color/white"
+
+            >
+
+        </TextView>
+        <TextView
+            android:id="@+id/tv_book_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_default_label"
+            android:layout_toRightOf="@+id/divider_book"
+            tools:text="Office ToDo"
+            android:textSize="28sp"
+            android:padding="8dp"
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif-thin"
+            >
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/tv_memo_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="10 voice memo"
+            android:textSize="8sp"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:padding="4dp"
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif"
+            >
+
+        </TextView>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

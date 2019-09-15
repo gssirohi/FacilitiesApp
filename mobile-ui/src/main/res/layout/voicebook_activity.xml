@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/coordinatorLayout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.voicebook.VoicebookActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:id="@+id/app_bar"
+        android:fitsSystemWindows="true"
+        android:elevation="0dp"
+        app:elevation="0dp"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:titleEnabled="true"
+
+            app:expandedTitleMarginBottom="64dp"
+            app:expandedTitleGravity="center_horizontal|bottom"
+            app:title="Dashboard"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
+            <!--<com.techticz.app.ui.customView.AppImageView
+                android:id="@+id/aiv_plan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/bg_late_night1"/>-->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+            <FrameLayout
+                android:id="@+id/app_bar_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/side_nav_bar"
+                >
+                <TextView
+                    android:id="@+id/tv_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:padding="4dp"
+                    android:text="DEFAULT"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:background="@drawable/stroke_white"
+                    android:textStyle="bold"
+                    android:layout_gravity="right">
+
+                </TextView>
+                <Button
+                    android:id="@+id/b_set_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="16dp"
+                    android:padding="4dp"
+                    android:text="SET DEFAULT"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:background="@drawable/stroke_white"
+                    android:layout_gravity="right">
+
+                </Button>
+                <TextView
+                    android:id="@+id/tv_memo_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|left"
+                    android:text="1 voice memo"
+                    android:fontFamily="sans-serif-thin"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:layout_margin="16dp"></TextView>
+            </FrameLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <FrameLayout
+        android:id="@+id/container"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="bottom|end"
+        app:behavior_overlapTop ="32dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="72dp"
+        ></FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom|center"
+        android:layout_height="wrap_content">
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_speak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="9dp"
+            android:layout_margin="4dp"
+            android:tint="@color/white"
+            app:srcCompat="@drawable/ic_mic" />
+    </FrameLayout>
+
+    <com.techticz.app.ui.widget.error.ErrorView
+        android:id="@+id/error_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+    </com.techticz.app.ui.widget.error.ErrorView>
+
+    <com.techticz.app.ui.widget.loading.LoadingView
+        android:id="@+id/loading_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+    </com.techticz.app.ui.widget.loading.LoadingView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

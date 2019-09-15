@@ -22,5 +22,6 @@ dependencies {
     testImplementation domainTestDependencies.mockito
     testImplementation domainTestDependencies.assertj
 
+    compile project(path:':data',configuration:'default')
 }
 

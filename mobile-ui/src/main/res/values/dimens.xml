@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="bottom_sheet_top_margin">62dp</dimen>
-    <dimen name = "current_weather_top_margin">56dp</dimen>
+    <dimen name="current_weather_top_margin">56dp</dimen>
 
-    <dimen name = "text_size_current_temp">96sp</dimen>
+    <dimen name="text_size_current_temp">96sp</dimen>
     <dimen name="text_size_location">36sp</dimen>
     <dimen name="padding_medium">16dp</dimen>
     <dimen name="forecast_list_item_height">80dp</dimen>
     <dimen name="text_size_day_name">16sp</dimen>
     <dimen name="padding_large">42dp</dimen>
-    <dimen name="text_size_error">54sp</dimen>
+    <dimen name="text_size_error">32sp</dimen>
     <dimen name="retry_button_top_margin">44dp</dimen>
     <dimen name="loader_size">96dp</dimen>
     <dimen name="loader_outer_size">140dp</dimen>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="dimen_0dp">0dp</dimen>
+    <dimen name="dimen_1dp">1dp</dimen>
+    <dimen name="dimen_2dp">2dp</dimen>
+    <dimen name="dimen_4dp">4dp</dimen>
+    <dimen name="dimen_8dp">8dp</dimen>
+    <dimen name="dimen_14sp">14sp</dimen>
+    <dimen name="dimen_16sp">16sp</dimen>
+    <dimen name="dimen_24dp">24dp</dimen>
+    <dimen name="dimen_32dp">32dp</dimen>
+    <dimen name="dimen_48dp">48dp</dimen>
+    <dimen name="dimen_56dp">56dp</dimen>
+    <dimen name="list_item_spacing">16dp</dimen>
+    <dimen name="list_item_spacing_half">8dp</dimen>
 </resources>
