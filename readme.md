@@ -1,4 +1,4 @@
- This is a simple weather app which displays current weather and forecast for the current user location.
+ This is a simple Voice Memo app which record audio and stores transcript and audio as Memo.
  This sample project uses clean architecture so it may seem over-complicated,
  However this architecture allow us to maintain large code base in a layered manner.
  
@@ -21,5 +21,8 @@
  # Data Layer
  Work as a selection layer to choose the dataSource or repositories(i.e remote or database)
  
+ # Database Layer
+  Handles DB operations and handover db model to data layer with the help of mapper 
+  
  # Remote/Network Layer
- Handles APIs, network call and handover data model to data layer with the help of mapper 
+ Handles APIs, network call and handover remote model to data layer with the help of mapper 
