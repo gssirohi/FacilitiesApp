@@ -1,4 +1,4 @@
- This is a simple Voice Memo app which record audio and stores transcript and audio as Memo.
+ This is a simple Facility Display app.
  This sample project uses clean architecture so it may seem over-complicated,
  However this architecture allow us to maintain large code base in a layered manner.
  
