@@ -1,9 +1,12 @@
 package com.gssirohi.techticz.database.dao;
 
+import android.util.Log;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -27,6 +30,9 @@ public abstract class BaseDao<T> {
      */
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     public abstract Single<Long> insert(T obj);
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    public abstract Long insertItem(T obj);
 
     /**
      * Insert an array of objects in the database.
@@ -61,13 +67,25 @@ public abstract class BaseDao<T> {
     @Delete
     public abstract Single<Integer> delete(T obj);
 
-    /*@Transaction
-    public void upsert(T obj) {
-        long id = insert(obj).;
-        if (id == -1) {
-            update(obj);
-        }
-    }*/
+    public Single<Long> upsert(final T obj) {
+
+        return Single.fromCallable(new Callable<Long>() {
+            @Override
+            public Long call() throws Exception {
+                try {
+                    long _result = insertItem(obj);
+                    if(_result == -1){
+                        update(obj);
+                        return 0L;
+                    } else {
+                        return _result;
+                    }
+                } finally {
+                    Log.d("DAO","insert or update");
+                }
+            }
+        });
+    }
 
    /* @Transaction
     public void upsert(List<T> objList) {

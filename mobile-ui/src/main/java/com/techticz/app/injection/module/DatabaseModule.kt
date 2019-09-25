@@ -1,10 +1,10 @@
 package com.techticz.app.injection.module
 
 import android.content.Context
-import com.gssirohi.techticz.database.AppDatabase
-import com.gssirohi.techticz.database.DatabaseRepositoryImpl
+import com.gssirohi.techticz.database.FacilityAppDatabase
+import com.gssirohi.techticz.database.FacilityDatabaseRepositoryImpl
 import com.techticz.app.TechticzApplication
-import com.techticz.data.repository.DatabaseRepository
+import com.techticz.data.repository.FacilityDatabaseRepository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -14,13 +14,15 @@ abstract class DatabaseModule {
     //In order to provide dependencies statically
     @Module
     companion object {
+
         @Provides
         @JvmStatic
-        fun provideAppDatabase(context: Context):AppDatabase{
-            val db = AppDatabase.getAppDataBase(context as TechticzApplication)
+        fun provideFacilityAppDatabase(context: Context):FacilityAppDatabase{
+            val db = FacilityAppDatabase.getFacilityAppDataBase(context as TechticzApplication)
             return db
         }
     }
+
     @Binds
-    abstract fun bindDatabaseRepositoryImpl(remoteRepositoryImpl: DatabaseRepositoryImpl):DatabaseRepository
+    abstract fun bindFacilityDatabaseRepositoryImpl(databaseRepositoryImpl: FacilityDatabaseRepositoryImpl): FacilityDatabaseRepository
 }

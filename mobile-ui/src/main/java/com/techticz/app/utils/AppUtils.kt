@@ -19,6 +19,7 @@ import kotlin.math.roundToInt
 import android.R.attr.factor
 import android.R.color
 import android.graphics.Color
+import com.techticz.app.R
 
 
 class AppUtils{
@@ -82,7 +83,21 @@ class AppUtils{
         fun getTimeStamp(): Long {
             return Calendar.getInstance().timeInMillis
         }
-    }
 
+        fun getIconRes(name:String):Int{
+            return when(name){
+                "apartment"-> R.drawable.apartment
+                "boat"->R.drawable.boat
+                "condo"->R.drawable.condo
+                "garage"->R.drawable.garage
+                "garden"->R.drawable.garden
+                "land"->R.drawable.land
+                "no-room"->R.drawable.no_room
+                "rooms"->R.drawable.rooms
+                "swimming"->R.drawable.swimming
+                else->R.drawable.no_room
+            }
+        }
+    }
 
 }

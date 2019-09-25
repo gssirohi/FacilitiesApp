@@ -6,12 +6,12 @@
         android:layout_height="match_parent"
         android:background="@color/error_bg"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context="com.gssirohi.techticz.voicebook.ui.voicebook.VoicebookActivity">
+        >
     <TextView
             android:id="@+id/tv_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text = "@string/error_msg_default"
+            android:text = "@string/common_error_message"
             app:layout_constraintTop_toBottomOf="parent"
             app:layout_constraintBottom_toTopOf="parent"
             app:layout_constraintLeft_toRightOf="parent"

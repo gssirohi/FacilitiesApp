@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<TextView
+    android:id="@+id/tv_facility_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Property Name"
+    style="@style/Text.Facility"
+    android:textSize="@dimen/dimen_24dp">
+
+</TextView>
+<include
+    android:layout_margin="8dp"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    layout="@layout/facility_option_card_layout"></include>
+</LinearLayout>

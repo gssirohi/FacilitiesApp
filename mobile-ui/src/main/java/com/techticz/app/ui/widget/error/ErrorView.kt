@@ -32,4 +32,8 @@ class ErrorView:RelativeLayout {
             button_retry.visibility = View.GONE
         }
     }
+
+    fun setError(s:String?){
+        s?.let{tv_error.text = it}
+    }
 }

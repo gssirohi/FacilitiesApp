@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/database" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/mobile-ui" />
             <option value="$PROJECT_DIR$/presentation" />
@@ -16,6 +17,7 @@
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="testRunner" value="PLATFORM" />
       </GradleProjectSettings>
     </option>
   </component>
